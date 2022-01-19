@@ -1,10 +1,12 @@
-window.addEventListener('load', function () {
+window.initPage = function (params) {
     enableNavActiveToggler();
     enableMenuClickAnim();
-})
+
+    initValues(params);
+}
 
 function enableNavActiveToggler () {
-    const navItems = document.querySelectorAll('.nav-item');
+    const navItems = document.querySelectorAll('.nav-ul .nav-item');
     let currSelected = 'correos';
     
     console.log("navItems", navItems)
@@ -26,4 +28,24 @@ function enableMenuClickAnim () {
     menu.addEventListener('click', function () {
         menu.classList.toggle('menu--active');
     })
+}
+
+function initValues (values) {
+    const embudoItem = document.getElementById('embudo-item');
+    const embudoQnt = document.getElementById('embudo-qnt');
+
+    const mailItem = document.getElementById('mail-item');
+    const mailQnt = document.getElementById('mail-qnt');
+
+    const contactItem = document.getElementById('contact-item');
+    const contactQnt = document.getElementById('contact-qnt');
+
+    const workflowItem = document.getElementById('workflow-item');
+    const workflowQnt = document.getElementById('workflow-qnt');
+
+    embudoQnt.innerHTML = values.embudos;
+    mailQnt.innerHTML = values.correos;
+    contactQnt.innerHTML = values.contactos;
+    workflowQnt.innerHTML = values.workflows;
+
 }

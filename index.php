@@ -30,9 +30,12 @@
             <span class="material-icons md-18">podcasts</span>
             <span class="material-icons md-18">question_mark</span>
             <span class="material-icons md-18">notifications</span>
-            <div class="menu menu--active">
+            <div class="menu">
                 <span class="material-icons md-18">person</span>
-                <span>Brayan Zarco</span>
+                <div class="menu_name">
+                    <span>Brayan Zarco</span>
+                    <span class="material-icons chevron md-18">expand_more</span>
+                </div>
 
                 <ul>
                     <li>Mi Perfil</li>
@@ -44,9 +47,9 @@
         </div>
     </header>
     <section class="app">
-        <nav>
-            <ul>
-                <li class="nav-item">
+        <nav class="main_nav">
+            <ul class="nav-ul">
+                <li class="nav-item nav-item--active">
                     <a class="" data-section="home">
                         <span class="material-icons md-18">grid_view</span>
                         <span>Inicio</span>
@@ -83,11 +86,28 @@
                     </a>
                 </li>
             </ul>
+
+            <nav class="nav_bottom">
+                <ul>
+                    <li class="nav-item">
+                        <a class="" data-section="plugins">
+                            <span class="material-icons md-18">settings</span>
+                            <span>API</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="" data-section="plugins">
+                            <span class="material-icons md-18">link</span>
+                            <span>Copiar URL de afiliado</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </nav>
         <main>
             <div class="contents">
 
-                <div class="app-item">
+                <div id="embudo-item" class="app-item">
                     <div class="app-item_title red-text">
                     <span class="material-icons md-18">podcasts</span>
                         <span>Mis Embudos</span>
@@ -97,11 +117,11 @@
                     </div>
                     <div class="app-item_footer">
                         <span>Funnels Total</span>
-                        <span class="app-item_number red-text">106</span>
+                        <span id="embudo-qnt" class="app-item_number red-text">106</span>
                     </div>
                 </div>
 
-                <div class="app-item">
+                <div id="mail-item" class="app-item">
                     <div class="app-item_title blue-text">
                     <span class="material-icons md-18">mail</span>
                         <span>Mis Correos</span>
@@ -111,11 +131,11 @@
                     </div>
                     <div class="app-item_footer">
                         <span>Correos totales</span>
-                        <span class="app-item_number">106</span>
+                        <span id="mail-qnt" class="app-item_number">106</span>
                     </div>
                 </div>
 
-                <div class="app-item">
+                <div id="contact-item" class="app-item">
                     <div class="app-item_title yellow-text">
                     <span class="material-icons md-18">groups</span>
                         <span>Mis Contactos</span>
@@ -125,11 +145,11 @@
                     </div>
                     <div class="app-item_footer">
                         <span>Contactos totales</span>
-                        <span class="app-item_number">106</span>
+                        <span id="contact-qnt" class="app-item_number">106</span>
                     </div>
                 </div>
 
-                <div class="app-item">
+                <div id="workflow-item" class="app-item">
                     <div class="app-item_title green-text">
                     <span class="material-icons md-18">pie_chart</span>
                         <span>Mis Workflows</span>
@@ -139,10 +159,15 @@
                     </div>
                     <div class="app-item_footer">
                         <span>Funnels Total</span>
-                        <span class="app-item_number">106</span>
+                        <span id="workflow-qnt" class="app-item_number">106</span>
                     </div>
                 </div>
 
+            </div>
+
+            <div class="main_footer">
+                <div><strong>Visita Totales</strong>: 0</div>
+                <div><strong>Contactos Añadidos Hoy</strong>: 0</div>
             </div>
         </main>
     </section>
@@ -150,7 +175,10 @@
     <script src="script.js"></script>
     <script>
         const data = <?php print($result); ?>;
-        console.log("data", data)
+        window.addEventListener('load', function () {
+            // initPage cames from script.js
+            window.initPage(data);
+        })
     </script>
 </body>
 </html>
