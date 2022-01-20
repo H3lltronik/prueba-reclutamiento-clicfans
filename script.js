@@ -28,6 +28,19 @@ function enableMenuClickAnim () {
     menu.addEventListener('click', function () {
         menu.classList.toggle('menu--active');
     })
+    
+    const menuMobile = document.querySelector('.menu_mobile');
+    const mainIcon = document.querySelector('.menu-icon');
+    const mainNav = document.querySelector('.main_nav');
+    menuMobile.addEventListener('click', function () {
+        mainNav.classList.toggle('main_nav--open');
+
+        if (mainNav.classList.contains('main_nav--open')) {
+            mainIcon.innerHTML = 'close';
+        } else {
+            mainIcon.innerHTML = 'menu';
+        }
+    });
 }
 
 function initValues (values) {

@@ -24,7 +24,10 @@
 <body>
 
     <header>
-        <img src="./images/logo.png" alt="logo">
+        <div class="">
+            <img class="logo" src="./images/logo.png" alt="logo">
+            <img class="logo-mini" src="./images/logo-mini.png" alt="logo">
+        </div>
 
         <div class="header_icons">
             <span class="material-icons md-18">podcasts</span>
@@ -33,7 +36,7 @@
             <div class="menu">
                 <span class="material-icons md-18">person</span>
                 <div class="menu_name">
-                    <span>Brayan Zarco</span>
+                    <span class="username">Brayan Zarco</span>
                     <span class="material-icons chevron md-18">expand_more</span>
                 </div>
 
@@ -47,6 +50,10 @@
         </div>
     </header>
     <section class="app">
+        <div class="menu_mobile">
+            <span class="menu-icon material-icons chevron md-18">menu</span>
+        </div>
+
         <nav class="main_nav">
             <ul class="nav-ul">
                 <li class="nav-item nav-item--active">
@@ -174,9 +181,18 @@
     
     <script src="script.js"></script>
     <script>
+        /* 
+            Realmente no comprendi bien la seccion 5, cual es el punto de traer los datos con fetch 
+            si anteriormente ya se habian conseguido con cURL, de cualquier forma puse ambas formas de
+            hacerlo y trabajar con JS aqui 🤔 solo que he comentado la de fetch -> linea 186
+        */
         const data = <?php print($result); ?>;
-        window.addEventListener('load', function () {
+        
+        window.addEventListener('load', async function () {
             // initPage cames from script.js
+            // const data = await fetch('https://clicfans.com/reclutamiento/').then((res) => res.json());
+
+            console.log("data", data)
             window.initPage(data);
         })
     </script>
