@@ -7,7 +7,6 @@ window.initPage = function (params) {
 
 function enableNavActiveToggler () {
     const navItems = document.querySelectorAll('.nav-ul .nav-item');
-    let currSelected = 'correos';
     
     console.log("navItems", navItems)
     navItems.forEach(navItem => {
