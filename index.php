@@ -3,9 +3,14 @@
     $curl = curl_init();
     $url = "https://clicfans.com/reclutamiento/";
 
+    $data = array("sendData" => "Carlos Esau");
+    $postdata = json_encode($data);
+
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $postdata);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
     $result = curl_exec($curl);
 ?>
